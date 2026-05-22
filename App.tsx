@@ -1,21 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { AuthProvider } from '@/context/AuthContext';
+import { CartProvider } from '@/context/CartContext';
+import RootNavigator from '@/navigation/RootNavigator';
+import { colors } from '@/theme';
+
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Yumly</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <AuthProvider>
+          <CartProvider>
+            <RootNavigator />
+            <StatusBar style="dark" backgroundColor={colors.bg} translucent={false} />
+          </CartProvider>
+        </AuthProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: { fontSize: 24, fontWeight: '700', color: '#FF6B35' },
-});
