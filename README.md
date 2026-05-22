@@ -112,5 +112,5 @@ src/
 
 ## Submission
 
-- Demo video: *add link here*
-- Public repo: *add link here*
+- Demo video: [https://www.youtube.com/watch?v=NzHUQ7AmT6k](https://www.youtube.com/watch?v=NzHUQ7AmT6k)
+- Public repo: [https://github.com/mohdaffankhan/yumly](https://github.com/mohdaffankhan/yumly)
